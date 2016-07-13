@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ninjaGold</title>
+    <link rel="stylesheet" href='{{url_for('static',filename='style.css')}}'>
+</head>
+
+<body>
+    <div class=container>
+        <div class='display_gold'>Your Gold:{{session['gold_pot']}}</div>
+        <!-- total gold -->
+        <form action="/process_money" method="post" class="farm_form">
+
+        	<h1>Farm</h1> <h2><b>(earns 10-20 golds)</b></h2>&nbsp;
+            <input type="submit" value="Find Gold!" name="farmGold">
+        </form>
+
+        <form action="/process_money" method="post" class="cave_form">
+            <h1>Cave</h1><h2><b> (earns 5-10 golds)</b></h2><br>
+            <input type="submit" value="Find Gold!" name="caveGold">
+        </form>
+
+        <form action="/process_money" method="post" class="house_form">
+            <h1>House</h1> <h2><b>(earns 2-5 golds)</b></h2><br>
+            <input type="submit" value="Find Gold!" name="houseGold"/>
+        </form>
+
+        <form action="/process_money" method="post" class="casino_form">
+            <h1>Casino</h1> <h2><b>(earns/takes 0-50 golds)</b></h2><br>
+            <input type="submit" value="Find Gold!" name="casinoGold"/>
+        </form>
+
+        <br>
+        <br>
+		
+        <form action="/process_money" method="post" class="form">
+        
+            Activities: 
+           {{(session['output_text']) | safe}}
+            <!-- {{message | safe}} -->
+        
+        </form>
+        <a href="/clear" class="clear">Clear</a>
+        
+        
+    </div>
+</body>
+
+</html>
